@@ -1,0 +1,42 @@
+// Ghidra (_dev_menu_2.0.exe) 
+
+ __main();
+  pcStack_18 = "tlou-ii.exe";
+  pvStack_20 = (LPVOID)0x1188197d70;
+  uStack_21 = 1;
+  uStack_22 = 0;
+  bStack_9 = 0;
+  pvStack_30 = (LPVOID)0x1188146130;
+  uStack_31 = 1;
+  uStack_32 = 0;
+  bStack_a = 0;
+  ShellExecuteA((HWND)0x0,"open","tlou-ii.exe",(LPCSTR)0x0,(LPCSTR)0x0,5);
+  DStack_10 = 0;
+  while (DStack_10 == 0) {
+    DStack_10 = GetProcessIDByName(pcStack_18);
+    Sleep(500);
+  pvStack_40 = OpenProcess(0x38,0,DStack_10);
+  if (pvStack_40 == (HANDLE)0x0) {
+    iVar2 = 1;
+    while (iVar2 = GetProcessIDByName(pcStack_18), iVar2 != 0) {
+      SVar1 = GetAsyncKeyState(0x70);
+      if (SVar1 < 0) {
+        bStack_9 = bStack_9 ^ 1;
+        uStack_41 = uStack_22;
+        if (bStack_9 != 0) {
+          uStack_41 = uStack_21;
+        WriteProcessMemory(pvStack_40,pvStack_20,&uStack_41,1,&SStack_50);
+        Sleep(200);
+      SVar1 = GetAsyncKeyState(0x71);
+      if (SVar1 < 0) {
+        bStack_a = bStack_a ^ 1;
+        uStack_51 = uStack_32;
+        if (bStack_a != 0) {
+          uStack_51 = uStack_31;
+        WriteProcessMemory(pvStack_40,pvStack_30,&uStack_51,1,&SStack_60);
+        Sleep(200);
+      Sleep(10);
+    CloseHandle(pvStack_40);
+    iVar2 = 0;
+  return iVar2;
+}
